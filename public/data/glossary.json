@@ -1,0 +1,45 @@
+[
+  {
+    "es": "HERMANA",
+    "en": "SISTER"
+  },
+  {
+    "es": "GATO",
+    "en": "CAT"
+  },
+  {
+    "es": "MANZANA",
+    "en": "APPLE"
+  },
+  {
+    "es": "LIBRO",
+    "en": "BOOK"
+  },
+  {
+    "es": "ÁRBOL",
+    "en": "TREE"
+  },
+  {
+    "es": "CASA",
+    "en": "HOUSE"
+  },
+  {
+    "es": "AGUA",
+    "en": "WATER"
+  },
+  {
+    "es": "ESCUELA",
+    "en": "SCHOOL"
+  },
+  {
+    "es": "COMPUTADORA",
+    "en": "COMPUTER"
+  },
+  {
+    "es": "HOLA MUNDO",
+    "en": "HELLO WORLD"
+  },
+  { "es": "TAMBOR",
+    "en": "DRUM"
+  }
+]

@@ -1,0 +1,11 @@
+# Dependencias y compilación
+node_modules/
+dist/
+
+# Archivos de sistema y editores
+.DS_Store
+Thumbs.db
+*.log
+.~lock.*
+.vscode/
+.idea/
