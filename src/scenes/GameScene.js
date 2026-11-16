@@ -41,6 +41,11 @@ export class GameScene extends Phaser.Scene {
       }
     });
 
+    // Tecla P como atajo opcional para el botón de pista
+    this.input.keyboard.on('keydown-P', () => {
+      this.revealHint();
+    });
+
     // 1. Fondo espacial
     this.createBackground();
 
@@ -132,6 +137,9 @@ export class GameScene extends Phaser.Scene {
       'Dispara únicamente a las letras sobrantes'
     );
     this.statusMessageText.setColor(COLORS.MUTED_HEX);
+
+    // Reiniciar el estado del botón de pista al cargar el nivel
+    this.resetHintButton();
 
     // Renderizar la fila de letras centrada
     this.spawnLetterSequence(levelData.sequence);
@@ -404,12 +412,15 @@ export class GameScene extends Phaser.Scene {
       })
       .setOrigin(0.5, 0.5);
 
+    // Botón interactivo de PISTA al costado derecho del panel
+    this.createHintButton();
+
     // Guía de controles en el pie de pantalla
     this.add
       .text(
         GAME_WIDTH / 2,
         585,
-        '[FLECHAS / A-D] Mover nave   |   [ESPACIO] Disparar a letra sobrante',
+        '[FLECHAS / A-D] Mover  |  [ESPACIO] Disparar  |  [CLIC / P] Pista',
         {
           fontFamily: FONT_FAMILY,
           fontSize: '13px',
@@ -417,6 +428,101 @@ export class GameScene extends Phaser.Scene {
         }
       )
       .setOrigin(0.5);
+  }
+
+  /**
+   * Crea un botón interactivo al costado derecho para revelar la palabra en inglés.
+   */
+  createHintButton() {
+    this.hintRevealed = false;
+
+    const btnX = GAME_WIDTH - 92;
+    const btnY = 68;
+    const btnWidth = 116;
+    const btnHeight = 32;
+
+    this.hintBtnBg = this.add
+      .rectangle(btnX, btnY, btnWidth, btnHeight, COLORS.TILE_BG_NUM, 1)
+      .setStrokeStyle(2, COLORS.CYAN_NUM)
+      .setInteractive({ useHandCursor: true });
+
+    this.hintBtnText = this.add
+      .text(btnX, btnY, '? PISTA', {
+        fontFamily: FONT_FAMILY,
+        fontSize: '15px',
+        fontStyle: 'bold',
+        color: COLORS.CYAN_HEX
+      })
+      .setOrigin(0.5);
+
+    // Texto donde se muestra la palabra revelada debajo del panel al costado derecho
+    this.hintRevealText = this.add
+      .text(GAME_WIDTH - 24, 118, '', {
+        fontFamily: FONT_FAMILY,
+        fontSize: '16px',
+        fontStyle: 'bold',
+        color: COLORS.GREEN_HEX,
+        backgroundColor: '#16162b',
+        padding: { x: 10, y: 5 }
+      })
+      .setOrigin(1, 0)
+      .setVisible(false);
+
+    this.hintBtnBg.on('pointerover', () => {
+      if (!this.hintRevealed) {
+        this.hintBtnBg.setFillStyle(0x2a3158, 1);
+        this.hintBtnBg.setStrokeStyle(2, COLORS.YELLOW_NUM);
+        this.hintBtnText.setColor(COLORS.YELLOW_HEX);
+      }
+    });
+
+    this.hintBtnBg.on('pointerout', () => {
+      if (!this.hintRevealed) {
+        this.hintBtnBg.setFillStyle(COLORS.TILE_BG_NUM, 1);
+        this.hintBtnBg.setStrokeStyle(2, COLORS.CYAN_NUM);
+        this.hintBtnText.setColor(COLORS.CYAN_HEX);
+      }
+    });
+
+    this.hintBtnBg.on('pointerdown', () => {
+      this.revealHint();
+    });
+  }
+
+  /**
+   * Revela la traducción en inglés del nivel actual al presionar el botón de pista.
+   */
+  revealHint() {
+    if (!this.currentLevelData || this.isTransitioning) {
+      return;
+    }
+
+    this.hintRevealed = true;
+    this.hintBtnBg.setFillStyle(0x1b3b2b, 1);
+    this.hintBtnBg.setStrokeStyle(2, COLORS.GREEN_NUM);
+    this.hintBtnText.setText('PISTA ACTIVA');
+    this.hintBtnText.setColor(COLORS.GREEN_HEX);
+    this.hintBtnText.setFontSize('12px');
+
+    this.hintRevealText.setText(`INGLÉS: ${this.currentLevelData.wordEn}`);
+    this.hintRevealText.setVisible(true);
+  }
+
+  /**
+   * Restaura el botón de pista y oculta la traducción revelada al cambiar de nivel.
+   */
+  resetHintButton() {
+    if (!this.hintBtnBg) {
+      return;
+    }
+    this.hintRevealed = false;
+    this.hintBtnBg.setFillStyle(COLORS.TILE_BG_NUM, 1);
+    this.hintBtnBg.setStrokeStyle(2, COLORS.CYAN_NUM);
+    this.hintBtnText.setText('? PISTA');
+    this.hintBtnText.setColor(COLORS.CYAN_HEX);
+    this.hintBtnText.setFontSize('15px');
+    this.hintRevealText.setText('');
+    this.hintRevealText.setVisible(false);
   }
 
   /**
