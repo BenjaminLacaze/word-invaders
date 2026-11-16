@@ -1,45 +1,110 @@
 [
   {
-    "es": "HERMANA",
-    "en": "SISTER"
+    "es": "combinacion de teclas",
+    "en": "BINDINGS"
   },
   {
-    "es": "GATO",
-    "en": "CAT"
+    "es": "ENTRE",
+    "en": "BETWEEN"
   },
   {
-    "es": "MANZANA",
-    "en": "APPLE"
+    "es": "PERMITIR",
+    "en": "ALLOW"
   },
   {
-    "es": "LIBRO",
-    "en": "BOOK"
+    "es": "MIGAS DE PAN",
+    "en": "BREADCRUMBS"
   },
   {
-    "es": "ÁRBOL",
-    "en": "TREE"
+    "es": "POR SUERTE",
+    "en": "ABOVE"
   },
   {
-    "es": "CASA",
-    "en": "HOUSE"
+    "es": "POR DEBAJO",
+    "en": "BELOW"
   },
   {
-    "es": "AGUA",
-    "en": "WATER"
+    "es": "HASTA",
+    "en": "UP TO"
   },
   {
-    "es": "ESCUELA",
-    "en": "SCHOOL"
+    "es": "MENU DESPLEGABLE",
+    "en": "DROPDOWN"
   },
   {
-    "es": "COMPUTADORA",
-    "en": "COMPUTER"
+    "es": "A PESAR DE TODO",
+    "en": "REGARDLESS"
   },
   {
-    "es": "HOLA MUNDO",
-    "en": "HELLO WORLD"
+    "es": "VISTAZO",
+    "en": "PEEK"
   },
-  { "es": "TAMBOR",
-    "en": "DRUM"
+  { 
+    "es": "SOLUCION DE PROBLEMAS",
+    "en": "TROUBLESHOOTING"
+  },
+  { 
+    "es": "POCO PRACTICO",
+    "en": "CUMBERSOME"
+  },
+  { 
+    "es": "FACIL DE ENTENDER",
+    "en": "STRAIGHTFORWARD"
+  },
+  { 
+    "es": "DICHO ESTO",
+    "en": "THAT SAID"
+  },
+  { 
+    "es": "EN GENERAL",
+    "en": "OVERALL"
+  },
+  { 
+    "es": "ADEMAS DE ESO",
+    "en": "ON TOP OF THAT"
+  },
+  { 
+    "es": "LAS POSIBILIDADES SON",
+    "en": "CHANCES ARE"
+  },
+  { 
+    "es": "CONOCIMIENTO",
+    "en": "KNOWLEDGE"
+  },
+  { 
+    "es": "EXPERIENCIA",
+    "en": "EXPERTISE"
+  },
+  { 
+    "es": "ENVOLVER",
+    "en": "WRAP"
+  },
+  { 
+    "es": "ANIDAR",
+    "en": "NEXT"
+  },
+  { 
+    "es": "ENTORNO DE DESARROLLO",
+    "en": "ENNVIRONMENT"
+  },
+  { 
+    "es": "CADA",
+    "en": "EACH"
+  },
+  { 
+    "es": "GANCHOS INTEGRADOS",
+    "en": "BUILT IN HOOKS"
+  },
+  { 
+    "es": "PROPIO",
+    "en": "OWN"
+  },
+  { 
+    "es": "SIN ENVARGO",
+    "en": "HOWEVER"
+  },
+  { 
+    "es": "AMBOS",
+    "en": "BOTH"
   }
 ]
